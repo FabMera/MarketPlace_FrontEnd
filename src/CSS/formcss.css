@@ -1,0 +1,28 @@
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-control button {
+  background: #e7a274;
+  border: 1px solid #ebac82;
+  border-radius: 5px;
+  color: #f6f6e9;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.form-control button:hover {
+  background-color: #cf5c4d;
+}
+.fail {
+  color: #f2317f;
+}
+
+.registrarse {
+  border-bottom: 1px solid #cec8c8;
+  margin: 25px 0;
+  opacity: 0.8;
+}

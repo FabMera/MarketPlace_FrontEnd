@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+
+.container * {
+  --bs-gutter-x: 0;
+}
+.container {
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 30px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.navbar {
+  background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+  padding-bottom: 15px;
+}
+
+.img-banner {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.boton {
+  color: #fff !important;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: transparent;
+  border: none;
+
+  position: relative;
+  opacity: 0.9;
+}
+.boton-logout {
+  background-color: rgb(134, 29, 219);
+  border: none;
+  color: white;
+  width: 200px;
+  padding: 5px;
+  opacity: 1;
+}
+.boton-logout:hover {
+  opacity: 0.8;
+}
+.boton:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 100%;
+  background: rgba(249, 251, 252, 0.1);
+  transition: all 0.5s ease;
+}
+.boton:hover:before {
+  width: 100%;
+}
+.boton:hover {
+  opacity: 1;
+}
+
+.logo {
+  font-family: "Black Ops One", cursive;
+  color: white;
+  font-size: 2.5rem;
+  margin: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.logo:hover {
+  opacity: 1.5;
+  transition: all 0.5s ease;
+}
+.p-search {
+  font-family: "Roboto Serif", serif;
+  font-size: 1rem;
+}
+
+.comentario-p {
+  border: 1px solid rgb(230, 216, 216);
+  background-color: #fff;
+}
+
+.caja-commit {
+  width: 100%;
+  margin: 20px;
+  
+}
+.iconos-commit {
+  cursor: pointer;
+  color: rgb(179, 187, 187);
+}
+
+.input-wrapper {
+  position: relative;
+}
+.input-icon {
+  color: #191919;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.favorito-img{
+  cursor: pointer;
+  opacity: 0.8;
+  width: 200px;
+}
+
+.favorito-img:hover{
+  opacity: 1;
+}
+.boton-general{
+  background-color: rgb(210, 118, 91);
+  border: none;
+  color: white;
+  width: 120px;
+  padding: 5px;
+  opacity: 1;
+}
+
+.boton-general:hover{
+  opacity: 0.8;
+}

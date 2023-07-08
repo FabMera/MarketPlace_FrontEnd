@@ -1,0 +1,21 @@
+.slick-slide > div {
+  margin: 0 1px;
+}
+.slick-list {
+  margin: 0 -1px;
+}
+.card {
+  width: 240px;
+  overflow: hidden;
+  cursor: default;
+  transition: all 350ms ease-in-out; /* tiempo suave */
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.cards :hover {
+  transform: translateY(-3%); /* eje de movimiento y o x */
+  box-shadow: 0px 12px 30px 0px rgba(0, 0, 0, 0.2); /* sombra al pasar */
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1); /* tiempo suave de movimiento */
+}
