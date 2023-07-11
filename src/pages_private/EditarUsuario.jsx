@@ -2,13 +2,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import MiContext from "../Context/Micontext";
 import Error from "../components_privates/Error";
+import { userContext } from "../Context/userContext";
+
 
 const EditarUsuario = () => {
   const [errorEditForm, setErrorEditForm] = useState(false);
   const [usersEdit, setUsersEdit] = useState([]);
-  const { users } = useContext(MiContext);
+  const { users } = useContext(userContext);
   const {
     register,
     setValue,
@@ -25,16 +26,16 @@ const EditarUsuario = () => {
       setUsersEdit(info);
     };
     getUser();
-  }, []);
+  }, [endpoint]);
 
   useEffect(() => {
     const usuarioActual = users.find((item) => item.username);
     console.log(usuarioActual);
-    const firstName = usuarioActual.firstName;
-    const lastName = usuarioActual.lastName;
+    const firstName = usuarioActual.nombre;
+    const lastName = usuarioActual.apellido;
     const username = usuarioActual.username;
-    setValue("firstName", firstName);
-    setValue("lastName", lastName);
+    setValue("nombre", firstName);
+    setValue("apellido", lastName);
     setValue("username", username);
   });
 

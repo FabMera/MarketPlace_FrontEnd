@@ -25,7 +25,7 @@ const Categorias = () => {
       </div>
       <div className="col">
         <div className="cardItem">
-          <i class="fa-solid fa-bicycle fa-3x"></i>
+          <i className="fa-solid fa-bicycle fa-3x"></i>
           <span className="cardLabel">Bikes</span>
         </div>
       </div>
@@ -37,7 +37,7 @@ const Categorias = () => {
       </div>
       <div className="col">
         <div className="cardItem">
-          <i class="fa-solid fa-shirt fa-3x"></i>
+          <i className="fa-solid fa-shirt fa-3x"></i>
           <span className="cardLabel">Clothing</span>
         </div>
       </div>

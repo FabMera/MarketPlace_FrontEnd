@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MiContext from "../Context/Micontext";
+import { userContext } from "../Context/userContext";
 
 const TodoComentarios = ({
   item,
@@ -8,7 +8,7 @@ const TodoComentarios = ({
   editComment,
   setComentario,
 }) => {
-  const {users,isAuth}=useContext(MiContext)
+  const {users,isAuth}=useContext(userContext)
 
 
 

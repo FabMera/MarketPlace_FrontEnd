@@ -1,12 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../CSS/formcss.css";
 import { useForm } from "react-hook-form";
-import MiContext from "../Context/Micontext";
 import { useNavigate } from "react-router-dom";
 import Error from "../components_privates/Error";
+import { userContext } from "../Context/userContext";
+import axios from "axios";
+
+
 
 const ForminicioSession = () => {
-  const { users, setUsers, setIsAuth } = useContext(MiContext);
+  const { users, setUsers, setIsAuth } = useContext(userContext);
+ 
   const {
     register,
     handleSubmit,
@@ -18,8 +22,7 @@ const ForminicioSession = () => {
   const goHome = () => {
     navigate("/");
   };
-
-
+  
   //Pra iniciar sesion debemos buscar al array users de objetos si existe un item y contraseña igual al que le pasamos
   const customSesion = (usuario, e) => {
     const usuarios = () => {
@@ -30,7 +33,7 @@ const ForminicioSession = () => {
       );
       if (result) {
         console.log(result);
-        setUsers([result]);
+        //setUsers([result]);
         setErrorInicio(false);
         setIsAuth(true);
         return goHome();

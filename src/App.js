@@ -1,6 +1,4 @@
-
-import Micontext from "./Context/Micontext";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components_public/NavBar";
@@ -16,130 +14,69 @@ import Carrito from "./pages_private/Carrito";
 import { useAuth0 } from "@auth0/auth0-react";
 import Spinner from "./components_privates/Spinner";
 import Page404 from "./pages_public/Page404";
-import { cargarProductos } from "./data/productos";
 import EditarUsuario from "./pages_private/EditarUsuario";
-import { cargarUsuarios } from "./data/users";
+import UserProvider from "./Context/UserProvider";
+import ProductProvider from "./Context/ProductProvider";
+import { userContext } from "./Context/userContext.js";
+import { productContext } from "./Context/productContext.js";
+import axios from "axios";
 
 function App() {
-  const { isAuthenticated } = useAuth0();
-  const [isAuth, setIsAuth] = useState(false);
-  const [productos, setProductos] = useState([]);
-  const [publicacion, setPublicacion] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [carroCompra, setCarroCompra] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [tipo, setTipo] = useState("");
-  const [categoria, setCategoria] = useState([]);
-  const [estado, setEstado] = useState("");
-  const [precio, setPrecio] = useState("");
-  const [imagen, setImagen] = useState("");
-  const [descrip, setDescrip] = useState("");
-  const [cantidad, setCantidad] = useState(0);
-  const [modoedicion, setModoEdicion] = useState(false);
-  const { isLoading } = useAuth0();
+    const { isAuthenticated } = useAuth0();
+    const { isLoading } = useAuth0();
+
+    const { isAuth, setUsers, users } = useContext(userContext);
+    const { productos } = useContext(productContext);
+   
 
 
+    //Muestro el Spinner mientras exista una carga del usuario.
+  
+    const endpointuser = "http://localhost:8080/users/allusers";
 
-  //Mostrar productos desde la api de Dummy ..
-  useEffect(() => {
-    cargarProductos(setProductos);
-  }, []);
-  //Cargo los usuarios del users.json
-  useEffect(() => {
-    cargarUsuarios(setUsers);
-    console.log(users)
-  }, []);
-
-  // solicito los datos a la local storage y los transformo
-  useEffect(() => {
-    const obtenerDataLocal = () => {
-      const publicacionLS =
-        JSON.parse(localStorage.getItem("publicacion")) ?? [];
-      setPublicacion(publicacionLS);
+    const cargarUsuarios = async () => {
+        const res = await axios.get(endpointuser);
+        const info = res.data;
+        setUsers(info);
     };
-    obtenerDataLocal();
-  }, []);
 
-  //guardo los estados en localStorage
-  useEffect(() => {
-    localStorage.setItem("publicacion", JSON.stringify(publicacion));
-  }, [publicacion]);
-
-  //Muestro el Spinner mientras exista una carga del usuario.
+    useEffect(() => {
+        cargarUsuarios();
+    }, []);
+    
   if (isLoading) {
-    return <Spinner />;
-  }
+        return <Spinner />;
+    }
 
-  return (
-    <div className="App">
-      <Micontext.Provider
-        value={{
-          isAuth,
-          setIsAuth,
-          users,
-          setUsers,
-          productos,
-          setProductos,
-          publicacion,
-          setPublicacion,
-          categories,
-          setCategories,
-          total,
-          setTotal,
-          carroCompra,
-          setCarroCompra,
-          tipo,
-          setTipo,
-          categoria,
-          setCategoria,
-          estado,
-          setEstado,
-          precio,
-          setPrecio,
-          imagen,
-          setImagen,
-          descrip,
-          setDescrip,
-          cantidad,
-          setCantidad,
-          modoedicion,
-          setModoEdicion,
-        }}
-      >
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            {isAuth || isAuthenticated ? (
-              <>
-                {" "}
-                <Route
-                  path="/mispublicaciones"
-                  element={<MisPublicaciones />}
-                />
-                <Route path="/" element={<Home />} />
-                <Route path="/galeria" element={<GaleriaGeneral />} />
-                <Route path="/miperfil" element={<Miperfil />} />
-                <Route path="/miperfil/:usuarioId/editar" element={<EditarUsuario />} />
-                <Route path="/favoritos" element={<MisFavoritos />} />
-                <Route path="/producto/:id" element={<DetalleProducto />} />
-                <Route path="/carrito" element={<Carrito />} />
-              </>
-            ) : (
-              <>
-                {" "}
-                <Route path="/" element={<Home />} />
-                {/* <Route path="*" element={<Navigate to="/404" />} /> */}
-                <Route path="/inicio" element={<InicioSesion />} />
-                <Route path="/registro" element={<Registro />} />{" "}
-              </>
-            )}
-            {<Route path="*" element={<Page404 />} />}
-          </Routes>
-        </BrowserRouter>
-      </Micontext.Provider>
-    </div>
-  );
+    return (
+        <div className="App">
+            <BrowserRouter>
+                <NavBar />
+                <Routes>
+                    {" "}
+                    <Route
+                        path="/mispublicaciones"
+                        element={<MisPublicaciones />}
+                    />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/galeria" element={<GaleriaGeneral />} />
+                    <Route path="/miperfil" element={<Miperfil />} />
+                    <Route
+                        path="/miperfil/:usuarioId/editar"
+                        element={<EditarUsuario />}
+                    />
+                    <Route path="/favoritos" element={<MisFavoritos />} />
+                    <Route path="/producto/:id" element={<DetalleProducto />} />
+                    <Route path="/carrito" element={<Carrito />} />{" "}
+                    <Route path="/" element={<Home />} />
+                    {/* <Route path="*" element={<Navigate to="/404" />} /> */}
+                    <Route path="/inicio" element={<InicioSesion />} />
+                    <Route path="/registro" element={<Registro />} />{" "}
+                    {<Route path="*" element={<Page404 />} />}
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

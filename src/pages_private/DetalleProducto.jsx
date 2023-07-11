@@ -5,12 +5,12 @@ import Comentarios from "../components_privates/Comentarios";
 import DetalleCards from "../components_privates/DetalleCards";
 import DetalleCardsPublica from "../components_privates/DetalleCardsPublica";
 import TodoComentarios from "../components_privates/TodoComentarios";
-import MiContext from "../Context/Micontext";
 import Swal from "sweetalert2";
+import { productContext } from "../Context/productContext";
+
 
 const DetalleProducto = () => {
-  const { publicacion, productos, carroCompra, setCarroCompra, setProductos } =
-    useContext(MiContext);
+  const { publicacion, productos, carroCompra, setCarroCompra, setProductos } =useContext(productContext);
 
   const { id } = useParams();
   const { user } = useAuth0();

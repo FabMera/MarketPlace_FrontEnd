@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import MiContext from "../Context/Micontext";
+import { userContext } from "../Context/userContext";
 
-const Cards = ({ product, onClickHeart, irAlDetalle, addProduct, user,publicacion}) => {
 
-const {isAuth}=useContext(MiContext)
+const Cards = ({ product, onClickHeart, irAlDetalle, addProduct, user}) => {
+
+const {isAuth}=useContext(userContext)
 
   return (
     <>

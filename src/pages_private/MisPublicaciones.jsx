@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import ListadoProductos from "../components_privates/ListadoProductos";
 import PublicarForm from "../components_privates/PublicarForm";
-import MiContext from "../Context/Micontext";
 import Swal from "sweetalert2";
 import axios from "axios";
 import ModalForm from "../components_privates/ModalForm";
+import { productContext } from "../Context/productContext";
+
 
 const MisPublicaciones = () => {
   const {
@@ -24,13 +25,11 @@ const MisPublicaciones = () => {
     setDescrip,
     setImagen,
     setCantidad,
-    productos,
-    setProductos,
     setCategories,
     modoedicion,
     setModoEdicion,
     users,
-  } = useContext(MiContext);
+  } = useContext(productContext);
 
   //Estados para el id del formulario actualizado,el error y el modo edicion
   const [ide, setIde] = useState("");

@@ -1,6 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useContext } from "react";
-import MiContext from "../Context/Micontext";
+import { userContext } from "../Context/userContext";
+import { productContext } from "../Context/productContext";
+
 
 const MisFavoritos = () => {
   const {
@@ -8,12 +10,12 @@ const MisFavoritos = () => {
     setPublicacion,
     carroCompra,
     setCarroCompra,
-    isAuth,
-    users,
     productos,
     setProductos
-  } = useContext(MiContext);
+  } = useContext(productContext);
   const { user } = useAuth0();
+
+  const {isAuth,users} = useContext(userContext);
 
   /* Funcion para borrar de publicaciones */
   const clickDelete = (ele) => {

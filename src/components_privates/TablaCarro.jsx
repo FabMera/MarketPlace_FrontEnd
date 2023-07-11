@@ -61,7 +61,7 @@ const TablaCarro = ({
             onClick={() => deleteItem(producto.id)}
             className="btn btn-danger"
           >
-            <i class="fa-solid fa-trash-can"></i>
+            <i className="fa-solid fa-trash-can"></i>
           </button>
         </td>
       </tr>

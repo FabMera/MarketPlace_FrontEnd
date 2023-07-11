@@ -61,7 +61,7 @@ const DetalleCardsPublica = ({item, addProductPublica}) => {
             <div className="d-flex justify-content-between">
               <Link to="/galeria">
                 <button style={{ color: "white" }} className="boton-general">
-                  <i class="fa-solid fa-angles-left"></i>Regresar
+                  <i className="fa-solid fa-angles-left"></i>Regresar
                 </button>
               </Link>
               <Link to="">

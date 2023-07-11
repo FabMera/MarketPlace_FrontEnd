@@ -2,11 +2,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React, { useContext } from "react";
 import PerfilAuth from "../components_privates/PerfilAuth";
 import LogoutButton from "../components_public/LogoutButton";
-import MiContext from "../Context/Micontext";
+import { productContext } from "../Context/productContext";
 
 const Miperfil = () => {
   const { user, isAuthenticated } = useAuth0();
-  const { publicacion } = useContext(MiContext);
+  const { publicacion } = useContext(productContext);
 
   return (
     <>

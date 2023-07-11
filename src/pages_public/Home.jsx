@@ -4,14 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardsMasComprado from "../components_public/CardsMasComprado";
 import Categorias from "../components_public/Categorias";
-import MiContext from "../Context/Micontext";
 import "../CSS/estilos_slider.css";
 import Footer from "../components_public/Footer";
 import banner from "../img/banner_principal.jpg";
 import { useNavigate } from "react-router-dom";
+import { productContext } from "../Context/productContext";
+
 
 const Home = () => {
-  const { productos } = useContext(MiContext);
+  const { productos } = useContext(productContext);
   const navigate = useNavigate();
 
 

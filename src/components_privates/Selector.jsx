@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import MiContext from "../Context/Micontext";
+import { productContext } from "../Context/productContext";
+
 
 const Selector = ({ handleChangeSelect }) => {
-  const { categories } = useContext(MiContext);
+  const { categories } = useContext(productContext);
 
   return (
     <div className="mb-3  p-3 ">

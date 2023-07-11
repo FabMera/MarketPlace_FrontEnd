@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import MiContext from "../Context/Micontext";
 import Error from "./Error";
+import { productContext } from "../Context/productContext";
+
 
 const PublicarForm = ({
   error,
@@ -25,7 +26,7 @@ const PublicarForm = ({
     setImagen,
     setCantidad,
     categories,
-  } = useContext(MiContext);
+  } = useContext(productContext);
 
   return (
     <>

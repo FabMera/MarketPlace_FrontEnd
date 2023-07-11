@@ -5,13 +5,16 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import RegisterButton from "./RegisterButton";
 import { FaShoppingCart } from "react-icons/fa";
-import MiContext from "../Context/Micontext";
-import { cargarUsuarios } from "../data/users";
+import  { userContext } from "../Context/userContext";
+import { productContext } from "../Context/productContext";
+
 
 const NavBar = () => {
   const { isAuthenticated } = useAuth0();
-  const { carroCompra, isAuth, setIsAuth,setUsers } = useContext(MiContext);
+  const { carroCompra} = useContext(productContext);
   const navigate = useNavigate()
+
+  const {isAuth,setUsers ,setIsAuth} = useContext(userContext)
 
   return (
     <>
@@ -88,7 +91,7 @@ const NavBar = () => {
                       <a className="dropdown-item">
                         {isAuth ? (
                           <button
-                            onClick={() => {setIsAuth(false);cargarUsuarios(setUsers);navigate('/')}}
+                            onClick={() => {setIsAuth(false);navigate('/')}}
                             className="boton-logout"
                           >
                            Cerrar Sesion
