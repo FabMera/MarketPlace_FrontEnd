@@ -21,8 +21,4 @@ con la libreria Auth0 si el usuario tiene cuenta Google o GitHub,la aplicacion t
 -Los datos de las publicaciones se almacenan en el local storage del navegador del usuario.
 -La aplicacion reconoce al usuario que a creado los productos,tambien permite vender un producto agregando imagenes locales o a traves de un ruta URL.
 
-
-
-Link a la aplicacion en VERCEL :
-
-https://react-project-marketplace.vercel.app/
+******Actualizando y modificando repositorio con conexion al backend de spring*****
